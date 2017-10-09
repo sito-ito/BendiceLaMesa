@@ -184,8 +184,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OracionController.cs" />
+    <Compile Include="Controllers\PropuestaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DAL\BendiceMesaContext.cs" />
+    <Compile Include="DAL\BendiceMesaInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,6 +250,16 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Oracion\Create.cshtml" />
+    <Content Include="Views\Oracion\Delete.cshtml" />
+    <Content Include="Views\Oracion\Details.cshtml" />
+    <Content Include="Views\Oracion\Edit.cshtml" />
+    <Content Include="Views\Oracion\Index.cshtml" />
+    <Content Include="Views\Propuesta\Create.cshtml" />
+    <Content Include="Views\Propuesta\Delete.cshtml" />
+    <Content Include="Views\Propuesta\Details.cshtml" />
+    <Content Include="Views\Propuesta\Edit.cshtml" />
+    <Content Include="Views\Propuesta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
