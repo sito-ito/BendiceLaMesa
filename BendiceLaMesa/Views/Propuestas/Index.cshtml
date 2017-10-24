@@ -15,10 +15,13 @@
             @Html.DisplayNameFor(model => model.Oracion.Texto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+            @Html.DisplayNameFor(model => model.Texto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Texto)
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AutorMail)
         </th>
         <th></th>
     </tr>
@@ -29,10 +32,13 @@
             @Html.DisplayFor(modelItem => item.Oracion.Texto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Usuario.Nombre)
+            @Html.DisplayFor(modelItem => item.Texto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Texto)
+            @Html.DisplayFor(modelItem => item.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AutorMail)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

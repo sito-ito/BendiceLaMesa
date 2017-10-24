@@ -18,8 +18,7 @@ namespace BendiceLaMesa.DAL
         public DbSet<Oracion> Oraciones { get; set; }
         public DbSet<Propuesta> Propuestas { get; set; }
         public DbSet<Palabra> Palabras { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
-
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

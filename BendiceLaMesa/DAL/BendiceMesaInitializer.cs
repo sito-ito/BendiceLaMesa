@@ -10,14 +10,22 @@ namespace BendiceLaMesa.DAL
     {
         protected override void Seed(BendiceMesaContext context)
         {
-            var usuario = new List<Usuario>
+            var oraciones = new List<Oracion>
             {
-                new Usuario{Nombre="Anónimo",Email=""},
-                new Usuario{Nombre="Mari Patxi Ayerra", Email="mpatxiayerra@gmail.com"}
+                new Oracion{Texto="Bendice estos alimentos",Autor="Anonimo" , AutorMail="" },
 
             };
 
-            usuario.ForEach(s => context.Usuarios.Add(s));
+            oraciones.ForEach(s => context.Oraciones.Add(s));
+            context.SaveChanges();
+
+            var Propuestas = new List<Propuesta>
+            {
+                new Propuesta{Texto="BEndice estos alimentos", Autor= "Anonimo", AutorMail="", OracionID=1 },
+                new Propuesta{Texto="Propuesta 2", Autor= "Anonimo", AutorMail="" },
+            };
+
+            Propuestas.ForEach(s => context.Propuestas.Add(s));
             context.SaveChanges();
 
 

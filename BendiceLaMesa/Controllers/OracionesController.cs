@@ -12,116 +12,107 @@ using BendiceLaMesa.Models;
 
 namespace BendiceLaMesa.Controllers
 {
-    public class PropuestaController : Controller
+    public class OracionesController : Controller
     {
         private BendiceMesaContext db = new BendiceMesaContext();
 
-        // GET: Propuesta
+        // GET: Oraciones
         public async Task<ActionResult> Index()
         {
-            var propuestas = db.Propuestas.Include(p => p.Oracion).Include(p => p.Usuario);
-            return View(await propuestas.ToListAsync());
+            return View(await db.Oraciones.ToListAsync());
         }
 
-        // GET: Propuesta/Details/5
+        // GET: Oraciones/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propuesta propuesta = await db.Propuestas.FindAsync(id);
-            if (propuesta == null)
+            Oracion oracion = await db.Oraciones.FindAsync(id);
+            if (oracion == null)
             {
                 return HttpNotFound();
             }
-            return View(propuesta);
+            return View(oracion);
         }
 
-        // GET: Propuesta/Create
+        // GET: Oraciones/Create
         public ActionResult Create()
         {
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto");
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "ID", "Nombre");
             return View();
         }
 
-        // POST: Propuesta/Create
+        // POST: Oraciones/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,OracionID,Texto,UsuarioID")] Propuesta propuesta)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Puntuacion,Texto,Autor,AutorMail")] Oracion oracion)
         {
             if (ModelState.IsValid)
             {
-                db.Propuestas.Add(propuesta);
+                db.Oraciones.Add(oracion);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "ID", "Nombre", propuesta.UsuarioID);
-            return View(propuesta);
+            return View(oracion);
         }
 
-        // GET: Propuesta/Edit/5
+        // GET: Oraciones/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propuesta propuesta = await db.Propuestas.FindAsync(id);
-            if (propuesta == null)
+            Oracion oracion = await db.Oraciones.FindAsync(id);
+            if (oracion == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "ID", "Nombre", propuesta.UsuarioID);
-            return View(propuesta);
+            return View(oracion);
         }
 
-        // POST: Propuesta/Edit/5
+        // POST: Oraciones/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,OracionID,Texto,UsuarioID")] Propuesta propuesta)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Puntuacion,Texto,Autor,AutorMail")] Oracion oracion)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(propuesta).State = EntityState.Modified;
+                db.Entry(oracion).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
-            ViewBag.UsuarioID = new SelectList(db.Usuarios, "ID", "Nombre", propuesta.UsuarioID);
-            return View(propuesta);
+            return View(oracion);
         }
 
-        // GET: Propuesta/Delete/5
+        // GET: Oraciones/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Propuesta propuesta = await db.Propuestas.FindAsync(id);
-            if (propuesta == null)
+            Oracion oracion = await db.Oraciones.FindAsync(id);
+            if (oracion == null)
             {
                 return HttpNotFound();
             }
-            return View(propuesta);
+            return View(oracion);
         }
 
-        // POST: Propuesta/Delete/5
+        // POST: Oraciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Propuesta propuesta = await db.Propuestas.FindAsync(id);
-            db.Propuestas.Remove(propuesta);
+            Oracion oracion = await db.Oraciones.FindAsync(id);
+            db.Oraciones.Remove(oracion);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

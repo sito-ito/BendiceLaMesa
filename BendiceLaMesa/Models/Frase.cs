@@ -13,10 +13,10 @@ namespace BendiceLaMesa.Models
         [StringLength(500, MinimumLength = 3)]
         public string Texto { get; set; }
 
-        public int UsuarioID { get; set; }
-
-
+        public string Autor { get; set; }
+        public string AutorMail { get; set; }
+        
         public virtual ICollection<Palabra> Palabras { get; set; }
-        public virtual Usuario Usuario { get; set; }
+       
     }
 }
