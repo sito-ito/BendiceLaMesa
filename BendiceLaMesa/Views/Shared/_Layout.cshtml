@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Bendice tu Mesa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Bendice tu Mesa", "Random", "Oraciones", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, null)</li>
+                    <!--<li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, null)</li>-->
+                    <li>@Html.ActionLink("Inicio", "Random", "Oraciones", new { area = "" }, null)</li>
                     <!--<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>-->
-                    <li>@Html.ActionLink("Manda tu Frase", "Create", "Propuesta")</li>
+                    <li>@Html.ActionLink("Manda tu Frase", "Create", "Propuestas")</li>
                 </ul>
             </div>
         </div>

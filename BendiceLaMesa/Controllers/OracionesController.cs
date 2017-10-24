@@ -22,6 +22,23 @@ namespace BendiceLaMesa.Controllers
             return View(await db.Oraciones.ToListAsync());
         }
 
+        public async Task<ActionResult> Random()
+        {
+            int numeroOraciones = db.Oraciones.Count();
+
+            //return  Oracion await db.Oraciones.OrderBy(s => Guid.NewGuid()).Take(1));
+            var rand = new Random();
+            int indice = rand.Next(db.Oraciones.Count());
+
+            //Oracion oracion = db.Oraciones.ElementAt(indice);
+            //Oracion oracion = await db.Oraciones.Skip(indice).FirstOrDefaultAsync();
+            var oracionRandom = (from ora in db.Oraciones
+                                 orderby ora.ID descending
+                                 select ora).Skip(indice).Take(1).First();
+
+            return View(oracionRandom);
+        }
+
         // GET: Oraciones/Details/5
         public async Task<ActionResult> Details(int? id)
         {

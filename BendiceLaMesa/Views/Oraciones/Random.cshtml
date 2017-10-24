@@ -1,0 +1,32 @@
+﻿@model BendiceLaMesa.Models.Oracion
+
+@{
+    ViewBag.Title = "Frase del día";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Oración:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dd>
+            @Html.DisplayFor(model => model.Texto)
+        </dd>
+
+        
+        <dd>
+            @Html.DisplayFor(model => model.Autor)
+        </dd>
+
+        
+        <dd>
+            @Html.DisplayFor(model => model.AutorMail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

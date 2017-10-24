@@ -274,6 +274,7 @@
     <Content Include="Views\Propuestas\Details.cshtml" />
     <Content Include="Views\Propuestas\Edit.cshtml" />
     <Content Include="Views\Propuestas\Index.cshtml" />
+    <Content Include="Views\Oraciones\Random.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
