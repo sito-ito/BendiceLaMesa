@@ -128,6 +128,15 @@ namespace BendiceLaMesa.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
+            var propuestasAsociada = await db.Propuestas.Where(x => x.OracionID == id).ToListAsync();
+
+            foreach (Propuesta p in propuestasAsociada)
+            {
+                p.OracionID = null;
+            }
+            await db.SaveChangesAsync();
+            
+
             Oracion oracion = await db.Oraciones.FindAsync(id);
             db.Oraciones.Remove(oracion);
             await db.SaveChangesAsync();

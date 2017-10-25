@@ -44,6 +44,38 @@ namespace BendiceLaMesa.Controllers
             ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto");
             return View();
         }
+             
+        // GET: Propuestas/Convertir/5
+        public async Task<ActionResult> Convertir(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Propuesta propuesta = await db.Propuestas.FindAsync(id);
+            if (propuesta == null)
+            {
+                return HttpNotFound();
+            }
+            
+            Oracion oracionNueva = new Oracion();
+            oracionNueva.Puntuacion = 0;
+            oracionNueva.Texto = propuesta.Texto;
+            oracionNueva.Autor = propuesta.Autor;
+            oracionNueva.AutorMail = propuesta.AutorMail;
+
+            db.Oraciones.Add(oracionNueva);
+            await db.SaveChangesAsync();
+
+            propuesta.OracionID = oracionNueva.ID;
+            
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+            //return View(propuesta);
+        }
+
+
 
         // POST: Propuestas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
@@ -75,7 +107,7 @@ namespace BendiceLaMesa.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
+            //ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
             return View(propuesta);
         }
 
@@ -92,7 +124,7 @@ namespace BendiceLaMesa.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
+            //ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
             return View(propuesta);
         }
 
