@@ -151,5 +151,16 @@ namespace BendiceLaMesa.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public Oracion GetRandomFrase()
+        {
+            var rowsCount =
+                       (from f in db.Oraciones
+                        select f).Count();
+
+            int index = new Random().Next(rowsCount);
+            Oracion oracion = db.Oraciones.OrderBy(i => i.ID).Skip(index).FirstOrDefault();
+            return oracion;
+        }
     }
 }

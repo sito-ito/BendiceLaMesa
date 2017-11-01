@@ -1,6 +1,12 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 100px; /* 50px;*/
+    padding-bottom: 40px;
+    background:  url('../Imagenes/fondo1.jpg') no-repeat center center fixed;
+    /*background: no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -10,8 +16,67 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
+input[type="text"],
+input[type="password"] {
     max-width: 280px;
 }
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+    position: relative;
+    margin-top: -110px; /* negative value of footer height */
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+#frase {
+    font-weight: bold;
+    color: black;
+}
+
+/*#autor {
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+}*/
