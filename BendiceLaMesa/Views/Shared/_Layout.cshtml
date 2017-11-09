@@ -25,7 +25,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Random", "Oraciones", new { area = "" }, null)</li>
+                    <!--<li>@Html.ActionLink("Inicio", "Random", "Oraciones", new { area = "" }, null)</li>-->
                     <li>@Html.ActionLink("Manda tu Frase", "Create", "Propuestas")</li>
                 </ul>
             </div>
@@ -39,8 +39,8 @@
 
     <footer class="footer">
         <hr />
-        @Html.ActionLink("Lista de Frases", "Index", "Frases") <br />
-
+        @*@Html.ActionLink("Lista de Frases", "Index", "Oraciones") <br />*@
+        <p> Muchas gracias a todos los colaboradores, en especial a <a href="https://maripatxiayerra.wordpress.com/maripatxi/" target="_blank">Mari Patxi Ayerra </a>. </p>
         <p>&copy; @DateTime.Now.Year - Bendice Tu Mesa Web App</p>
     </footer>
 

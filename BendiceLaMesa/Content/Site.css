@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 100px; /* 50px;*/
+    padding-top: 80px; /* 50px;*/
     padding-bottom: 40px;
     background:  url('../Imagenes/fondo1.jpg') no-repeat center center fixed;
     /*background: no-repeat center center fixed;*/
@@ -17,7 +17,9 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="number"]
+{
     max-width: 280px;
 }
 
@@ -67,12 +69,17 @@ html, body {
     height: 150px;
     clear: both;
     padding-top: 20px;
-    padding-left: 50px;
+    padding-left: 15px;
 }
 
 #frase {
-    font-weight: bold;
+    font-weight: normal;
     color: black;
+}
+
+#oracion {
+    font-family:Verdana;
+    
 }
 
 /*#autor {

@@ -44,7 +44,7 @@ namespace BendiceLaMesa.Controllers
             ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto");
             return View();
         }
-             
+
         // GET: Propuestas/Convertir/5
         public async Task<ActionResult> Convertir(int? id)
         {
@@ -57,19 +57,23 @@ namespace BendiceLaMesa.Controllers
             {
                 return HttpNotFound();
             }
-            
-            Oracion oracionNueva = new Oracion();
-            oracionNueva.Puntuacion = 0;
-            oracionNueva.Texto = propuesta.Texto;
-            oracionNueva.Autor = propuesta.Autor;
-            oracionNueva.AutorMail = propuesta.AutorMail;
 
-            db.Oraciones.Add(oracionNueva);
-            await db.SaveChangesAsync();
+            if (propuesta.OracionID == null)
+            {
+                Oracion oracionNueva = new Oracion();
+                oracionNueva.Puntuacion = 0;
+                oracionNueva.Texto = propuesta.Texto;
+                oracionNueva.Autor = propuesta.Autor;
+                oracionNueva.AutorMail = propuesta.AutorMail;
 
-            propuesta.OracionID = oracionNueva.ID;
-            
-            await db.SaveChangesAsync();
+                db.Oraciones.Add(oracionNueva);
+                await db.SaveChangesAsync();
+
+
+                propuesta.OracionID = oracionNueva.ID;
+
+                await db.SaveChangesAsync();
+            }
 
             return RedirectToAction("Index");
             //return View(propuesta);
