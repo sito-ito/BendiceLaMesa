@@ -240,6 +240,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\BendiceLaMesaV1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\BendiceLaMesaV2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Imagenes\fondo2.jpg" />
     <Content Include="Imagenes\fondo1.jpg" />
@@ -261,7 +263,9 @@
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -277,6 +281,7 @@
     <Content Include="Views\Propuestas\Edit.cshtml" />
     <Content Include="Views\Propuestas\Index.cshtml" />
     <Content Include="Views\Oraciones\Random.cshtml" />
+    <Content Include="Views\Propuestas\Gracias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

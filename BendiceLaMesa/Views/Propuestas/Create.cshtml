@@ -2,7 +2,10 @@
 
 @{
     ViewBag.Title = "Manda tu propuesta";
+
 }
+
+<h2>@ViewBag.Gracias</h2>
 
 <h2>Manda tu propuesta</h2>
 
@@ -49,12 +52,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                @*<input type="submit" value="Mandar Propuesta" class="btn btn-default" />*@
+                <input type="submit" value="Mandar Propuesta" class="btn btn-primary btn-lg" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Volver", "Index")
-</div>
+

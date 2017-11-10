@@ -42,6 +42,12 @@ namespace BendiceLaMesa.Controllers
         public ActionResult Create()
         {
             ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto");
+            
+            return View();
+        }
+
+        public ActionResult Gracias()
+        {
             return View();
         }
 
@@ -92,10 +98,13 @@ namespace BendiceLaMesa.Controllers
             {
                 db.Propuestas.Add(propuesta);
                 await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                ViewBag.Gracias = "Muchas gracias por su aportación";
+                return RedirectToAction("Gracias");
+                
             }
 
             ViewBag.OracionID = new SelectList(db.Oraciones, "ID", "Texto", propuesta.OracionID);
+            
             return View(propuesta);
         }
 

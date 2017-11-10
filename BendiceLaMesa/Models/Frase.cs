@@ -15,6 +15,7 @@ namespace BendiceLaMesa.Models
 
         public string Autor { get; set; }
         
+        [Display(Name ="Email")]
         public string AutorMail { get; set; }
         
         public virtual ICollection<Palabra> Palabras { get; set; }
