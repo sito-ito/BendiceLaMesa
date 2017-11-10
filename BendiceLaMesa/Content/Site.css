@@ -55,7 +55,7 @@ html, body {
 }
 
 #wrap {
-    min-height: 100%;
+    min-height: 80%;
 }
 
 #main {
@@ -65,7 +65,8 @@ html, body {
 
 .footer {
     position: relative;
-    margin-top: -110px; /* negative value of footer height */
+    /*position: absolute;*/
+    /*margin-top: -110px; /* negative value of footer height */
     height: 150px;
     clear: both;
     padding-top: 20px;
