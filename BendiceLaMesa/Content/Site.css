@@ -1,7 +1,8 @@
 ﻿body {
     padding-top: 80px; /* 50px;*/
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
     background:  url('../Imagenes/fondo1.jpg') no-repeat center center fixed;
+    /*background: url('../Imagenes/fondo1.jpg') no-repeat 30% center fixed;*/
     /*background: no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -67,19 +68,22 @@ html, body {
     position: relative;
     /*position: absolute;*/
     /*margin-top: -110px; /* negative value of footer height */
-    height: 150px;
+    height: 60px;
     clear: both;
+    width: 100%;
+    bottom: 0;
     padding-top: 20px;
     padding-left: 15px;
 }
 
 #frase {
-    font-weight: normal;
-    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: navy;
 }
 
 #oracion {
-    font-family:Verdana;
+    /*font-family:Verdana;*/
     
 }
 

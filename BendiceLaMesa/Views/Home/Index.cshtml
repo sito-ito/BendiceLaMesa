@@ -1,9 +1,29 @@
 ﻿
+@{
+    <script>
+        fondo = new Array(2);
+        fondo[0] = '../Imagenes/fondo1.jpg'
+        fondo[1] = '../Imagenes/fondo2.jpg'
+        fondo[2] = '../Imagenes/fondo3.jpg'
+        index = Math.floor(Math.random() * fondo.length);
+        document.body.style.backgroundImage = "url('" + fondo[index] + "')";
+
+        //Para que reinicie el scrool arriba
+        window.onbeforeunload = function () { window.scrollTo(0, 0); }
+
+    </script>
+
+}
+
 <div class="row" id="frase">
 
     <div class="col-md-3" id="oracion">
         <h2> @ViewBag.FraseRandom </h2>
-        <p class="text-right"> @ViewBag.Autor</p>
+        <h5><p class="text-right"> @ViewBag.Autor</p></h5>
+
+        <p>
+            <input type="button" value="Leer otra" class="btn btn-primary btn-xs" onclick="window.location.reload()"  />
+        </p>
     </div>
 
     <div class="col-md-3"></div>
